@@ -1,0 +1,45 @@
+services:
+  php:
+    build:
+      context: .
+      dockerfile: docker/php.Dockerfile
+    container_name: folium-php
+    volumes:
+      - .:/var/www
+    working_dir: /var/www
+    ports:
+      - "9003:9003"
+    networks:
+      - folium-network
+
+  nginx:
+    image: nginx:alpine
+    container_name: folium-nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
+    networks:
+      - folium-network
+
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    container_name: folium-client
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./client:/app
+      - /app/node_modules
+    depends_on:
+      - nginx
+    networks:
+      - folium-network
+
+networks:
+  folium-network:
+    driver: bridge

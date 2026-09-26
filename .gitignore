@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+vendor/
+
+# Docker
+.env
+
+# Build
+dist/
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

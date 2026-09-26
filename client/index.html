@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folium | Digital Ecosystem</title>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+    <div class="bg-container">
+        <div class="bg-overlay"></div>
+    </div>
+
+    <main class="dashboard" id="app">
+        <header class="header">
+            <h1 class="title">FOLIUM</h1>
+            <p class="subtitle">Vanilla TypeScript & PHP 8.5 Ecosystem</p>
+        </header>
+
+        <section class="status-grid">
+            <div class="status-card">
+                <span class="status-label">Runtime</span>
+                <div class="status-value">
+                    <span class="status-indicator"></span>
+                    PHP 8.5 FPM
+                </div>
+            </div>
+            <div class="status-card">
+                <span class="status-label">Frontend</span>
+                <div class="status-value">
+                    <span class="status-indicator"></span>
+                    TypeScript
+                </div>
+            </div>
+            <div class="status-card">
+                <span class="status-label">Database</span>
+                <div class="status-value">
+                    <span class="status-indicator"></span>
+                    JSON Engine
+                </div>
+            </div>
+            <div class="status-card">
+                <span class="status-label">Web Server</span>
+                <div class="status-value">
+                    <span class="status-indicator"></span>
+                    Nginx
+                </div>
+            </div>
+        </section>
+
+        <div class="actions">
+            <button class="btn btn-primary" id="checkBackend">Sync Backend</button>
+            <button class="btn btn-secondary" id="viewDocs">JSON Explorer</button>
+        </div>
+
+        <div id="backendResponse" style="margin-top: 2rem; padding: 1rem; border-radius: 12px; background: rgba(0,0,0,0.3); font-family: monospace; font-size: 0.9rem; display: none;"></div>
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
